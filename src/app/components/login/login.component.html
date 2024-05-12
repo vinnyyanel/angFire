@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col"></div>
+    <div class="col-4">
+      <div class="card shadow mt-3">
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <H4 class="text-dark">Login</H4>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email:</label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="email">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Mot de passe:</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="password">
+            </div>
+            <button type="submit" (click)="login()" class="btn btn-info">Submit</button>
+          </form>
+        </div>
+      <div class="row">
+        <div class="col-md-6">
+          <a routerLink="/inscription" style="text-decoration: none;">s'inscrire?</a>
+        </div>
+        <div class="col-md-6">
+          <a routerLink="/forgot-password" style="text-decoration: none;">mot de passe oublier</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row  text-center">
+                <div class="col">
+                  <a (click)="signInWithGoogle()" ><img src="../../../assets/icons/icons8-logo-google-48.png" alt=""></a>
+                  <a (click)="signInWithFacebook()" ><img src="../../../assets/icons/icons8-facebook-nouveau-48.png" alt=""></a>
+                  <a (click)="signInWithTwiter()" ><img src="../../../assets/icons/icons8-twitter-48.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

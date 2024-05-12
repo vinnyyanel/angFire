@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <h4 class=" text-info">Ajouter un utilisateur:</h4>
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputNom" class="form-label">Nom:</label>
+              <input type="text" class="form-control" id="exampleInputNom" name="nom" [(ngModel)]="userI.nom">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPrenom" class="form-label">Prenom:</label>
+              <input type="text" class="form-control" id="exampleInputPronom" name="prenom" [(ngModel)]="userI.prenom">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">email:</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="userI.email">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputMobile" class="form-label">mobile:</label>
+              <input type="text" class="form-control" id="exampleInputMobile" name="mobile" [(ngModel)]="userI.mobile">
+            </div>
+            <button type="submit" (click)="addUser()" class="btn btn-primary">ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+     <div class="row">
+      <div class="col-md-10"></div>
+      <div class="col"> <button type="submit" (click)="logout()" class="btn btn-warning">deconnexion</button></div>
+     </div>
+      <h4 class="text-danger">Liste des utilisateurs:</h4>
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">email</th>
+                <th scope="col">Mobile:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{user.nom}}</td>
+                <td>{{user.prenom}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.mobile}}</td>
+                <td><a (click)="deleteUser(user)" class="btn btn-outline-danger">supprimer</a></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
