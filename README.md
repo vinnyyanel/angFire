@@ -2,6 +2,8 @@
   le projet angfire est un gestionnaire d'utilisateur fait en angular et firebase:
   -page de connexion et inscription libre.
   -mettre un emails valide pour l'inscription il y'a une verification de l'email par liens
+  -Ajouts des utilisateurs
+  -suppression des utilisateurs
 
 
 

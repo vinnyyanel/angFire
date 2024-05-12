@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
@@ -8,7 +8,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
 
   protected users:User[]= [];
   protected userI:User ={
@@ -20,6 +20,11 @@ export class DashboardComponent {
   };
 
   constructor(private authService:AuthService,private data : DataService){}
+
+  ngOnInit(): void {
+
+    this.getAllUser();
+  }
   logout(){
     this.authService.logout();
   }
@@ -39,7 +44,13 @@ export class DashboardComponent {
   }
 
   resetForm(){
-    
+    this.userI ={
+      id:'',
+      nom:'',
+      prenom:'',
+      email:'',
+      mobile:''
+    };
   }
 
   addUser(){
@@ -49,11 +60,15 @@ export class DashboardComponent {
 
     this.data.addUser(this.userI);
     this.resetForm();
+    this.getAllUser();
   }
 
   deleteUser(user:User){
-    if (window.confirm('etes vous sur de supprimer'+user.nom+''+user.prenom)) {
+    if (window.confirm('etes vous sur de supprimer'+user.nom+' '+user.prenom)) {
+      console.log(user);
+
       this.data.deleteUser(user);
+      this.getAllUser();
     }
   }
 }
